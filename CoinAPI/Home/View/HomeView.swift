@@ -110,8 +110,10 @@ class HomeView: BaseView<HomeView.Model>, UITableViewDelegate, UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         let exchange = model.exchanges[indexPath.row]
+                
+        cell.textLabel?.text = "\(exchange.name ?? "") - \(exchange.id ?? "")"
+        cell.detailTextLabel?.text = "Volume per Day/USD: \(exchange.volumePerDayUSD)"
         
-        cell.textLabel?.text = exchange.name
         cell.textLabel?.textColor = .black
         cell.backgroundColor = .white
         
